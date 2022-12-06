@@ -38,7 +38,7 @@ module BTree: B_TREE_TYPE = struct
     insert binaryTree x (findPlace 1 [binaryTree]) 1
 
   let remove binaryTree x =
-    (*find deepest, rightmost node; set delete node's value to last node's value; delete last node*)
+    (*znajdz najglebszy i najbardziej z prawej; ustaw usuwana wartosc na wartosc ostatnia; usun ostatni node*)
     
     (*ta funkcja jest potrzebna zeby nie usunac ostatniego elementu gdy drzewo nie zawiera x*)
     let rec contains tree value = 
@@ -88,7 +88,7 @@ module BTree: B_TREE_TYPE = struct
     let containsX = contains binaryTree x
     in
     match containsX with 
-    false -> binaryTree (*catches if a tree is empty, or doesnt contain x*)
+    false -> binaryTree (*wylapuje tez czy drzewo jest puste*)
     |_ -> 
       let lastVal = findLastNodeValue [binaryTree] Option.None in 
       let tempTree = changeValue binaryTree x (Option.get lastVal) false in
