@@ -1,2 +1,5 @@
 .vscode
 .metals
+.idea
+Cw/Lista8/out
+*.iml
