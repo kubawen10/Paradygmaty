@@ -46,11 +46,11 @@ end;;
 
 
 module type T = sig 
-  type t = Int of int|Float of float
+  type 'a t = 'a * 'a * 'a
 end;;
 
 module Make_Point(Type: T) = struct 
-  type t = Type.t
+  type 
   let create x y z = 
     match (x,y,z) with 
     (Type.Int(a), Type.Int(b), Type.Int(c)) -> Point3D.IntPoint(a,b,c)
