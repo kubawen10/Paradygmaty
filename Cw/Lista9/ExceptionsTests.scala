@@ -1,4 +1,5 @@
 object Exceptions{
+    //wypisuja sie metody ze stosu które nie zostały ukończone przed wyjątkiem
     def main(args: Array[String])={
         try{
             metoda1()
