@@ -1,22 +1,49 @@
-Item circle;
+ComplexItem snowman;
 Item rect;
-Item triangle;
+Item txt;
+Scene s;
+ArrayList<Star> stars;
 
 void setup(){
   size(640, 640);
-  fill(0);
   
-  circle = new Circle(new Point(420,420), 69);
-  rect = new Rect(new Point(10,10), 69, 100);
-  triangle = new Triangle(new Point(70,70),new Point(80,80), new Point(80,70));
+  snowman = new ComplexItem(new Point(320,320));
+  txt = new TextItem(new Point(200,0),"Paint4D");
   
+  snowman.addItem(new Circle(new Point(0,0), 30));
+  snowman.addItem(new Circle(new Point(0,75), 45));
+  snowman.addItem(new Circle(new Point(0,180), 60));
+  snowman.addItem(new Circle(new Point(-10,-10), 3));
+  snowman.addItem(new Circle(new Point(10,-10), 3));
+  snowman.addItem(new Triangle(new Point(-3,0), new Point(3,0), new Point(0,15)));
+  snowman.addItem(new Segment(new Point(-10,20), new Point(10,20)));
+  snowman.addItem(new Rect(new Point(-30,-45), 60,20));
+
+  s = new Scene();
+  s.addItem(snowman);
+  s.addItem(txt);
   
-  ((Shape)circle).setFilled(true);
+  stars = new ArrayList<Star>();
+  
+  for(int i = 0; i < 50; i++){
+    Star star = new Star(new Point(int(random(20,620)),int(random(20,620))), 8, 10, 20);
+    stars.add(star);
+    s.addItem(star);
+  }
+
 }
 
 void draw(){
-  circle.drawItem();
-  rect.drawItem();
-  triangle.drawItem();
+  s.display();
+}
+
+void mousePressed(){
+  snowman.translateItem(new Point(int(random(-5,6)),int(random(-5,6))));
   
+  for(int i = 0; i < 50; i++){
+    stars.get(i).translateItem(new Point(int(random(-5,6)),int(random(-5,6))));
+  
+  }
+ 
+  //s.addItem();
 }

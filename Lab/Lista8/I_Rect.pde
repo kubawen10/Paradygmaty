@@ -2,17 +2,15 @@ class Rect extends Shape{
   private int w;
   private int h;
   
-  public Rect(Point position, int w, int h){
+  Rect(Point position, int w, int h){
     this.position = position;
     this.w = w;
     this.h = h;
-    filled = false;
     this.c = color(0,255,0);
     setBoundingBox();
   }
-  
-  @Override
-  protected void setBoundingBox(){
+
+  void setBoundingBox(){
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + w, position.getY());
     Point p3 = new Point(position.getX() + w, position.getY() + h);
@@ -20,18 +18,17 @@ class Rect extends Shape{
     boundingBox = new BoundingBox(p1,p2,p3,p4);
   }
   
-  public int getWidth(){
+  int getWidth(){
     return w;
   }
   
-  public int getHeight(){
+  int getHeight(){
     return h;
   }
   
-  @Override
-  public void drawItem(){
-    super.drawItem();
+  void display(Point relative){
+    super.display(relative);
     
-    rect(position.getX(), position.getY(), w, h);
+    rect(relative.getX()+position.getX(), relative.getY()+position.getY(), w, h);
   }
 }

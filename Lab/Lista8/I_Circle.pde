@@ -1,31 +1,29 @@
 class Circle extends Shape{
   private int radius;
   
-  public Circle(Point position, int radius){
-    this.position = position;
+  Circle(Point center, int radius){
+    center.translatePoint(new Point(-radius, -radius));
+    this.position = center;
     this.radius = radius;
-    filled = false;
     this.c = color(0,0,255);
     setBoundingBox();
   }
   
-  @Override
-  protected void setBoundingBox(){
+  void setBoundingBox(){
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + (2*radius), position.getY());
     Point p3 = new Point(position.getX() + (2*radius), position.getY() + (2*radius));
-    Point p4 = new Point(position.getX(), position.getY() + (2*radius));
+    Point p4 = new Point(position.getX()             , position.getY() + (2*radius));
     boundingBox = new BoundingBox(p1,p2,p3,p4);
   }
   
-  public int getRadius(){
+  int getRadius(){
     return radius;
   }
   
-  @Override
-  public void drawItem(){
-    super.drawItem();
+  void display(Point relative){
+    super.display(relative);
     
-    circle(position.getX(), position.getY(), radius);
+    circle(relative.getX() + position.getX() + radius, relative.getY() + position.getY() + radius, radius*2);
   }
 }

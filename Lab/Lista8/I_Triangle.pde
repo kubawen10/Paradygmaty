@@ -3,7 +3,7 @@ class Triangle extends Shape{
   private Point p2;
   private Point p3;
   
-  public Triangle(Point p1, Point p2, Point p3){
+  Triangle(Point p1, Point p2, Point p3){
     if(areaIs0(p1,p2,p3)){
       throw new IllegalArgumentException("Points are collinear!");
     }
@@ -19,8 +19,8 @@ class Triangle extends Shape{
     setBoundingBox();
   }
   
+  // if area is 0 then points are on the same line or we have 2 identical coordinates
   private boolean areaIs0(Point p1, Point p2, Point p3){
-    // if area is 0 then points are on same line or we have 2 identical coordinates
     return (((p2.getX()-p1.getX()) * (p3.getY()-p1.getY())) - ((p3.getX()-p1.getX()) * (p2.getY()-p1.getY()))) == 0; 
   }
   
@@ -40,35 +40,30 @@ class Triangle extends Shape{
     return new Point(maxX, maxY);
   }
   
-  @Override
-  protected void setBoundingBox(){
+  void setBoundingBox(){
     Point topLeft = findTopLeftBB(p1,p2,p3);
     Point bottomRight = findBottomRightBB(p1,p2,p3);
     
     int w = bottomRight.getX() - topLeft.getX();
     int h = bottomRight.getY() - topLeft.getY();
     
-    Point p1 = new Point(topLeft);
     Point p2 = new Point(topLeft.getX() + w, topLeft.getY());
-    Point p3 = new Point(topLeft.getX() + w, topLeft.getY() + h);
     Point p4 = new Point(topLeft.getX(), topLeft.getY() + h);
   
-    boundingBox = new BoundingBox(p1,p2,p3,p4);
+    boundingBox = new BoundingBox(topLeft, p2, bottomRight, p4);
   }
   
-  @Override
-  public void translateItem(Point p){
+  void translateItem(Point p){
+    super.translateItem(p);
+    
     p1.translatePoint(p);
     p2.translatePoint(p);
     p3.translatePoint(p);
-    
-    boundingBox.translateBoundingBox(p);
   }
   
-  @Override
-  public void drawItem(){
-    super.drawItem();
+  void display(Point relative){
+    super.display(relative);
     
-    triangle(p1.getX(), p1.getY(), p2.getX(), p2.getY(), p3.getX(), p3.getY());
+    triangle(relative.getX()+p1.getX(), relative.getY()+p1.getY(), relative.getX()+p2.getX(), relative.getY()+p2.getY(), relative.getX()+p3.getX(), relative.getY()+p3.getY());
   }
 }
