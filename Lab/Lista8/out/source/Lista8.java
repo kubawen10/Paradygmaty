@@ -24,8 +24,6 @@ ArrayList<Star> stars;
 public void setup(){
   /* size commented out by preprocessor */;
   
-  print(11);
-  
   snowman = new ComplexItem(new Point(320,320));
   txt = new TextItem(new Point(200,0),"Paint4D");
   
