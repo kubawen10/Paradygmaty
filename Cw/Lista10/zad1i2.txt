@@ -1,0 +1,7 @@
+1)
+    Pierwsza klasa może być kowariantna ponieważ jest tylko źródłem wartości dla otoczenia, nie można zmieniać jej wartości (val).
+
+    a) Druga klasa nie może być kowariantna bo możemy do niej podawać wartości (var) a nie tylko odczytywać (val)
+    b) i c) ani kontrwariantna ponieważ możemy pobierać wartości, musi być [T]
+
+2)
