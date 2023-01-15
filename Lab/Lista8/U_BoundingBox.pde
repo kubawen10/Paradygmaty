@@ -63,11 +63,23 @@ class BoundingBox{
     p4.setX(p1.getX());
     p4.setY(p3.getY());
   }
+
+  boolean contains(Point p){
+    boolean withinX = p.getX() >= p1.getX() && p.getX() <= p2.getX();
+
+    if(!withinX){
+      return false;
+    }
+
+    boolean withinY = p.getY() >= p1.getY() && p.getY() <= p4.getY();
+
+    return withinY;
+  }
   
   void display(){
     noFill();
     
-    color(0);
+    stroke(0);
     rect(p1.getX(), p1.getY(), p3.getX()-p1.getX(), p3.getY()-p1.getY());
   }
   

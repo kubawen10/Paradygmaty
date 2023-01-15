@@ -23,10 +23,6 @@ abstract class Item{
   }
   
   void display(){
-    if(displayBoundingBox){
-      boundingBox.display();
-    }
-    
     display(new Point(0,0));
   }
   

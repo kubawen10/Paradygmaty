@@ -1,4 +1,4 @@
-class Scene{
+class Scene implements SceneInterface{
   private ArrayList<Item> items;
   
   Scene(){
@@ -7,6 +7,10 @@ class Scene{
   
   void addItem(Item item){
    items.add(item); 
+  }
+
+  ArrayList<Item> getItems(){
+    return items;
   }
   
   void display(){
