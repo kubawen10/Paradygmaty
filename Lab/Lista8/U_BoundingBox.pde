@@ -67,7 +67,7 @@ class BoundingBox{
   void display(){
     noFill();
     
-    color(0);
+    stroke(0);
     rect(p1.getX(), p1.getY(), p3.getX()-p1.getX(), p3.getY()-p1.getY());
   }
   

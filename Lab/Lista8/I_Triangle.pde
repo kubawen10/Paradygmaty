@@ -2,7 +2,6 @@ class Triangle extends Shape{
   private Point p1;
   private Point p2;
   private Point p3;
-  static Triangle instance = null;
   
   private Triangle(Point p1, Point p2, Point p3){
     if(areaIs0(p1,p2,p3)){
@@ -19,8 +18,6 @@ class Triangle extends Shape{
     
     computeBoundingBox();
   }
-
-  public static Item getInstance
   
   // if area is 0 then points are on the same line or we have 2 identical coordinates
   private boolean areaIs0(Point p1, Point p2, Point p3){
