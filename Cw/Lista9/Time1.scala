@@ -1,4 +1,4 @@
-class Time(private var h: Int){
+class Time(private var h: Int):
     if (h<0) h = 0
 
     def hour: Int = h
@@ -6,9 +6,9 @@ class Time(private var h: Int){
         if (x < 0) h = 0
         else h = x
     }
-}
 
-object Tests{
+
+object Tests:
     def main(args: Array[String])={
         val t: Time = new Time(1)
 
@@ -16,4 +16,3 @@ object Tests{
         t.hour = 8
         println(t.hour)
     }
-}

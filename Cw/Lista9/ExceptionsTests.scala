@@ -1,4 +1,4 @@
-object Exceptions{
+object Exceptions:
     //wypisuja sie metody ze stosu które nie zostały ukończone przed wyjątkiem
     def main(args: Array[String])={
         try{
@@ -19,4 +19,4 @@ object Exceptions{
     def metoda3(): Unit = {
         throw new Exception("Wyjatek z metody3")
     }
-}
+
