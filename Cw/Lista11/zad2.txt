@@ -1,0 +1,55 @@
+a)
+class IntCell {
+    private int n = 0;
+    private boolean isSet = true;
+
+    public synchronized int getN() {
+        while (!isSet)
+            waitForNotifying();
+        isSet = false;
+        notifyAll();
+        return n;
+    }
+
+    public synchronized void setN(int n) {
+        while(isSet)
+            waitForNotifying();
+        this.n = n;
+        isSet = true;
+        notifyAll();
+    }
+
+    private void waitForNotifying() {
+        try {
+            wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+2b)
+import java.util.concurrent.Semaphore;
+class Count extends Thread {
+    static IntCell n = new IntCell();
+    private static Semaphore semaphore = new Semaphore(1);
+
+    @Override
+    public void run() {
+        int temp;
+        for (int i = 0; i < 200000; i++) {
+            tryAcquire();
+            temp = n.getN();
+            n.setN(temp + 1);
+            semaphore.release();
+        }
+    }
+
+    private void tryAcquire() {
+        try {
+            semaphore.acquire();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}

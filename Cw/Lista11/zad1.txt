@@ -1,0 +1,3 @@
+Dzieje się tak ponieważ wątki w różnych momentach pobierają i zapisują wartośc, 
+wtedy w1 może pobrać wartość, potem w2 może pobrać wartość i ją zmodyfikować a w1 zapisze wartość 
+i wtedy wartość zmieniła się tylko o 1 a nie o 2
