@@ -7,10 +7,10 @@ class Rect extends Shape{
     this.w = w;
     this.h = h;
     this.c = color(0,255,0);
-    setBoundingBox();
+    computeBoundingBox();
   }
 
-  void setBoundingBox(){
+  void computeBoundingBox(){
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + w, position.getY());
     Point p3 = new Point(position.getX() + w, position.getY() + h);

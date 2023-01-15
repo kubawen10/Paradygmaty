@@ -6,10 +6,10 @@ class Circle extends Shape{
     this.position = center;
     this.radius = radius;
     this.c = color(0,0,255);
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  void setBoundingBox(){
+  void computeBoundingBox(){
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + (2*radius), position.getY());
     Point p3 = new Point(position.getX() + (2*radius), position.getY() + (2*radius));

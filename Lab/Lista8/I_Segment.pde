@@ -10,10 +10,10 @@ class Segment extends Primitive{
     this.p1 = p1;
     this.p2 = p2;
     
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  void setBoundingBox(){
+  void computeBoundingBox(){
     int minX = position.getX();
     int minY = position.getY();
     

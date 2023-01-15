@@ -16,17 +16,13 @@ abstract class Item{
     return boundingBox;
   }
   
-  abstract void setBoundingBox();
+  abstract void computeBoundingBox();
   
   boolean getDisplayBoundingBox(){
     return displayBoundingBox;
   }
   
   void display(){
-    if(displayBoundingBox){
-      boundingBox.display();
-    }
-    
     display(new Point(0,0));
   }
   

@@ -7,10 +7,10 @@ class TextItem extends Item{
     this.position = position;
     this.text = text;
     
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  void setBoundingBox(){
+  void computeBoundingBox(){
     textFont(f);
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + int(textWidth(text)), position.getY());

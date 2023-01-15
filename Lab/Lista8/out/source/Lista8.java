@@ -23,9 +23,7 @@ ArrayList<Star> stars;
 
 public void setup(){
   /* size commented out by preprocessor */;
-  
-  print(11);
-  
+
   snowman = new ComplexItem(new Point(320,320));
   txt = new TextItem(new Point(200,0),"Paint4D");
   
@@ -63,8 +61,6 @@ public void mousePressed(){
     stars.get(i).translateItem(new Point(PApplet.parseInt(random(-5,6)),PApplet.parseInt(random(-5,6))));
   
   }
- 
-  //s.addItem();
 }
 abstract class Item{
   protected Point position;
@@ -84,17 +80,13 @@ abstract class Item{
     return boundingBox;
   }
   
-  public abstract void setBoundingBox();
+  public abstract void computeBoundingBox();
   
   public boolean getDisplayBoundingBox(){
     return displayBoundingBox;
   }
   
   public void display(){
-    if(displayBoundingBox){
-      boundingBox.display();
-    }
-    
     display(new Point(0,0));
   }
   
@@ -130,10 +122,10 @@ class Circle extends Shape{
     this.position = center;
     this.radius = radius;
     this.c = color(0,0,255);
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  public void setBoundingBox(){
+  public void computeBoundingBox(){
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + (2*radius), position.getY());
     Point p3 = new Point(position.getX() + (2*radius), position.getY() + (2*radius));
@@ -157,10 +149,10 @@ class ComplexItem extends Item{
   ComplexItem(Point position){
     this.position = position;
     items = new ArrayList<Item>();
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  public void setBoundingBox(){
+  public void computeBoundingBox(){
     boundingBox = null;
   }
   
@@ -185,7 +177,7 @@ class ComplexItem extends Item{
   
   public void display(Point relative){
     for(int i = 0; i<items.size(); i++){
-     (items.get(i)).display(position.sum(relative)); 
+      (items.get(i)).display(position.sum(relative)); 
     }
   }
 }
@@ -198,10 +190,10 @@ class Rect extends Shape{
     this.w = w;
     this.h = h;
     this.c = color(0,255,0);
-    setBoundingBox();
+    computeBoundingBox();
   }
 
-  public void setBoundingBox(){
+  public void computeBoundingBox(){
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + w, position.getY());
     Point p3 = new Point(position.getX() + w, position.getY() + h);
@@ -235,10 +227,10 @@ class Segment extends Primitive{
     this.p1 = p1;
     this.p2 = p2;
     
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  public void setBoundingBox(){
+  public void computeBoundingBox(){
     int minX = position.getX();
     int minY = position.getY();
     
@@ -289,10 +281,10 @@ class Star extends Shape{
     this.c = color(235, 235, 52);
     makeStar(innerRadius, outerRadius, numberOfSpikes);
     
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  public void makeStar(int radius1, int radius2, int npoints) {
+  private void makeStar(int radius1, int radius2, int npoints) {
     float angle = TWO_PI / npoints;
     float halfAngle = angle/2.0f;
   
@@ -310,7 +302,7 @@ class Star extends Shape{
     s.endShape(CLOSE);
   }
   
-  public void setBoundingBox(){
+  public void computeBoundingBox(){
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + 2*outerRadius, position.getY());
     Point p3 = new Point(position.getX() + 2*outerRadius, position.getY() + 2*outerRadius);
@@ -346,10 +338,10 @@ class TextItem extends Item{
     this.position = position;
     this.text = text;
     
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  public void setBoundingBox(){
+  public void computeBoundingBox(){
     textFont(f);
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + PApplet.parseInt(textWidth(text)), position.getY());
@@ -387,7 +379,7 @@ class Triangle extends Shape{
     
     this.c = color(255,0,0);
     
-    setBoundingBox();
+    computeBoundingBox();
   }
   
   // if area is 0 then points are on the same line or we have 2 identical coordinates
@@ -411,7 +403,7 @@ class Triangle extends Shape{
     return new Point(maxX, maxY);
   }
   
-  public void setBoundingBox(){
+  public void computeBoundingBox(){
     Point topLeft = findTopLeftBB(p1,p2,p3);
     Point bottomRight = findBottomRightBB(p1,p2,p3);
     

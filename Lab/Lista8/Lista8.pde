@@ -7,9 +7,6 @@ ArrayList<Star> stars;
 void setup(){
   size(640, 640);
 
-
-
-
   snowman = new ComplexItem(new Point(320,320));
   txt = new TextItem(new Point(200,0),"Paint4D");
   
@@ -47,6 +44,4 @@ void mousePressed(){
     stars.get(i).translateItem(new Point(int(random(-5,6)),int(random(-5,6))));
   
   }
- 
-  //s.addItem();
 }

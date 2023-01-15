@@ -11,10 +11,10 @@ class Star extends Shape{
     this.c = color(235, 235, 52);
     makeStar(innerRadius, outerRadius, numberOfSpikes);
     
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  void makeStar(int radius1, int radius2, int npoints) {
+  private void makeStar(int radius1, int radius2, int npoints) {
     float angle = TWO_PI / npoints;
     float halfAngle = angle/2.0;
   
@@ -32,7 +32,7 @@ class Star extends Shape{
     s.endShape(CLOSE);
   }
   
-  void setBoundingBox(){
+  void computeBoundingBox(){
     Point p1 = new Point(position);
     Point p2 = new Point(position.getX() + 2*outerRadius, position.getY());
     Point p3 = new Point(position.getX() + 2*outerRadius, position.getY() + 2*outerRadius);

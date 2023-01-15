@@ -4,10 +4,10 @@ class ComplexItem extends Item{
   ComplexItem(Point position){
     this.position = position;
     items = new ArrayList<Item>();
-    setBoundingBox();
+    computeBoundingBox();
   }
   
-  void setBoundingBox(){
+  void computeBoundingBox(){
     boundingBox = null;
   }
   
@@ -32,7 +32,7 @@ class ComplexItem extends Item{
   
   void display(Point relative){
     for(int i = 0; i<items.size(); i++){
-     (items.get(i)).display(position.sum(relative)); 
+      (items.get(i)).display(position.sum(relative)); 
     }
   }
 }

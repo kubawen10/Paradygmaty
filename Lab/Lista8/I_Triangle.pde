@@ -2,8 +2,9 @@ class Triangle extends Shape{
   private Point p1;
   private Point p2;
   private Point p3;
+  static Triangle instance = null;
   
-  Triangle(Point p1, Point p2, Point p3){
+  private Triangle(Point p1, Point p2, Point p3){
     if(areaIs0(p1,p2,p3)){
       throw new IllegalArgumentException("Points are collinear!");
     }
@@ -16,8 +17,10 @@ class Triangle extends Shape{
     
     this.c = color(255,0,0);
     
-    setBoundingBox();
+    computeBoundingBox();
   }
+
+  public static Item getInstance
   
   // if area is 0 then points are on the same line or we have 2 identical coordinates
   private boolean areaIs0(Point p1, Point p2, Point p3){
@@ -40,7 +43,7 @@ class Triangle extends Shape{
     return new Point(maxX, maxY);
   }
   
-  void setBoundingBox(){
+  void computeBoundingBox(){
     Point topLeft = findTopLeftBB(p1,p2,p3);
     Point bottomRight = findBottomRightBB(p1,p2,p3);
     
