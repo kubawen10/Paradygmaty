@@ -1,4 +1,4 @@
-class TimeA(private var h: Int, private var m: Int){
+class TimeA(private var h: Int, private var m: Int):
     require(0 <= h && h < 24, s"h=$h")
     require(0 <= m && m < 60, s"m=$m")
 
@@ -19,9 +19,9 @@ class TimeA(private var h: Int, private var m: Int){
     def before(other: TimeA): Boolean = {
         h < other.h || (h == other.h && m < other.m)
     }
-}
 
-class TimeB(h: Int, m: Int){
+
+class TimeB(h: Int, m: Int):
     require(0 <= h && h < 24, s"h=$h")
     require(0 <= m && m < 60, s"m=$m")
     private var minutesAfterMidnight = h*60 + m
@@ -43,9 +43,9 @@ class TimeB(h: Int, m: Int){
     def before(other: TimeB): Boolean = {
         minutesAfterMidnight < other.minutesAfterMidnight
     }
-}
 
-object Tests{
+
+object Tests:
     def main(args: Array[String])={
         val t1: TimeA = new TimeA(6, 30)
         val t2: TimeA = new TimeA(8, 30)
@@ -57,4 +57,3 @@ object Tests{
 
         println(t3.before(t4))
     }
-}
