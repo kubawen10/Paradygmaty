@@ -6,7 +6,27 @@ class Scene{
   }
   
   void addItem(Item item){
-   items.add(item); 
+    boolean added = false;
+    if(item instanceof Singleton){
+      println("Adding new instance");
+      added = changeIfInstanceExists(item);
+    }
+
+    if(!added){
+      items.add(item); 
+    }
+  }
+
+  private boolean changeIfInstanceExists(Item singletonItem){
+    for(int i = 0; i < items.size(); i++){
+      if(singletonItem.getClass().equals(items.get(i).getClass())){
+        println("found");
+        items.set(i, singletonItem);
+        return true;
+      }
+    }
+    println("Not found");
+    return false;
   }
   
   void display(){

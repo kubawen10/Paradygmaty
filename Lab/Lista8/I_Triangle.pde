@@ -1,9 +1,9 @@
-class Triangle extends Shape{
+class Triangle extends Shape implements Singleton{
   private Point p1;
   private Point p2;
   private Point p3;
-  
-  private Triangle(Point p1, Point p2, Point p3){
+
+  Triangle(Point p1, Point p2, Point p3){
     if(areaIs0(p1,p2,p3)){
       throw new IllegalArgumentException("Points are collinear!");
     }

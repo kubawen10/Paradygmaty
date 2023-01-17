@@ -1,3 +1,2 @@
 interface Singleton{
-    Item getInstance();
 }
