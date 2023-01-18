@@ -21,6 +21,7 @@ void setup(){
   snowman.addItem(new Rect(new Point(-30,-45), 60,20));
 
   t1 = new Triangle(new Point(10,10), new Point(150, 10), new Point(10,150));
+  t1.hello();
 
   s = new Scene();
   s.addItem(snowman);
