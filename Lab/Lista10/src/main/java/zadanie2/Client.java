@@ -20,10 +20,9 @@ public class Client extends Thread{
 
         while((System.currentTimeMillis() - startTime) / 1000 < bank.getOpeningTime()){
             double amount = random.nextDouble() * 500;
+
             //3 actions: deposit, withdraw, transfer
             int action = random.nextInt(3);
-
-
             switch(action){
                 case 0:
                     //System.out.println("Client " + getName() + " deposits " + amount);

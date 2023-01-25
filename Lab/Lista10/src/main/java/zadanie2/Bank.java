@@ -60,8 +60,10 @@ public class Bank {
         Bank bank = new Bank(5);
 
         Random r = new Random();
+
+        int initialMaxBalance = 1000;
         for (int i = 0; i < 10; i++) {
-            bank.addClient(r.nextDouble() * 1000);
+            bank.addClient(r.nextDouble() * initialMaxBalance);
         }
         bank.printAccounts();
         bank.openBank();
