@@ -1,0 +1,11 @@
+Każde z zadań powinno zostać zrealizowane zarówno w języku OCaml oraz Scala 3.
+Zadania z niniejszej listy należy opracować, skompilować i uruchomić. 
+Zadania powinny być możliwe do uruchomienia z linii komend oraz testowalne dla różnych danych. Zadania z niniejszej listy należy opracować bez użycia pętli, należy zaproponować rozwiązania rekurencyjne. Zabronione jest również wykorzystywanie funkcji bibliotecznych do pracy na ciągach znaków oraz listach oraz innych elementach, które wymagają algorytmicznego opracowania. 
+Napisz funkcję, która przyjmie listę elementów (np. liczb) jako parametr oraz zwróci ostatni element listy. Dla pustej listy należy zwrócić None (zob. Option oraz Option). 
+Napisz funkcję, która przyjmie listę elementów (np. liczb) jako parametr oraz zwróci dwa ostatnie elementy listy. Dla pustej lub jednoelementowej listy należy zwrócić None.
+Napisz funkcję, która przyjmuje listę jako parametr oraz zwraca jej długość.
+Napisz funkcję, która przyjmuje listę jako parametr oraz zwraca listę zawierającą elementy w odwrotnej kolejności.
+Napisz funkcję, która weryfikuje, czy ciąg znaków jest palindromem. 
+Napisz funkcję, która usuwa elementy powtarzające się z listy. 
+Napisz funkcję, która przyjmuje listę jako parametr oraz zwraca wynikową listę, która zawiera tylko elementy o parzystym indeksie w pierwotnej liście. 
+Napisz funkcję testującą pierwszość liczby całkowitej. 

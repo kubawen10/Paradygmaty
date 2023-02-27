@@ -1,0 +1,21 @@
+Instrukcje
+Każde z zadań powinno zostać zrealizowane zarówno w języku OCaml oraz Scala 3. 
+Zadania z niniejszej listy powinne zostać wykonane z wykorzystaniem środowiska interakcyjnego – konsoli działającej w trybie REPL. Dla języka OCaml można korzystać z narzędzia utop. 
+
+Wynikiem przedstawiającym wykonanie zadania są zrzuty ekranu z konsoli REPL.
+
+Pokaż, że konsola REPL  może być wykorzystana jako kalkulator. Wykonaj kilka podstawowych operacji arytmetycznych dla liczb całkowitych i rzeczywistych. 
+Pokaż umiejętność deklarowania zmiennych. Wykonaj to zarówno dla zmiennych mutowalnych oraz niemutowalnych. Pokaż, że zmienne mutowalne są w istocie mutowalne i można zmodyfikować ich wartość. 
+Pokaż, jak definiować proste funkcje. Zdefiniuj poniższe funkcje:
+funkcja przyjmująca liczbę oraz podnosząca ją do kwadratu,
+funkcja przyjmująca dwie liczby oraz obliczająca ich stosunek,
+funkcja przyjmująca dwie liczby oraz zwracająca ich maksimum.
+Pokaż, jak przekazywać funkcje jako parametry innych funkcji. Zdefiniuj w tym celu funkcję, która przyjmie na wejściu: 
+funkcję "test" o sygnaturze (int -> bool),
+trzy liczby całkowite: x, y, z, 
+Funkcja powinna zwrócić sumę tych liczb, dla których rezultat aplikacji funkcji test będzie wartością reprezentującą prawdę. Funkcję należy przetestować na co najmniej trzech różnych funkcjach testujących. 
+Skonstruuj listę zawierającą imiona Twoich ulubionych koleżanek i kolegów. Napisz funkcję, która:
+przyjmie na wejściu listę imion Twoich ulubionych koleżanek i kolegów,
+przyjmie na wejściu imię Twojej nowej koleżanki lub kolegi,
+zwróci na wyjściu listę, na początku której znajdzie się nowe imię. 
+Pokaż działanie funkcji. 

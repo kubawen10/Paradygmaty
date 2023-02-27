@@ -1,1 +1,1 @@
-let f z y x = x z (y x)
+let f y x z = z x(z x y y)
